@@ -1,0 +1,47 @@
+<div class="body pagetop">
+
+  <div class="container">
+
+
+<% if @user.errors.any? %>
+    <div>
+      <p><%= @user.errors.size %> errors prohibited this obj from being saved:</p>
+        <ul>
+            <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
+    <h2>User info</h2>
+
+    <%= form_for(@user) do |u| %>
+    <div class="field">
+      <label for="user_name">Name</label>
+      <%= u.text_field :name %>
+    </div>
+    <div class="field">
+      <label for="user_image">Image</label>
+      <%= u.attachment_field :profile_image %>
+    </div>
+    <div class="field">
+      <label for="introduction">Introduction</label>
+      <%= u.text_area :introduction %>
+    </div>
+    <div class="actions">
+      <%= u.submit %>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+
+  
+  
+  
+  
